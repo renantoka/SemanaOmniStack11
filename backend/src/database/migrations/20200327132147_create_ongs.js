@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('ongs', function (table) {
+    return knex.schema.createTableIfNotExists ('ongs', function (table) {
         table.string('id').primary();
         table.string('name').notNullable();
         table.string('email').notNullable();
@@ -11,5 +11,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTable('ongs');
+  knex.schema.dropTableIfExists('ongs');
 };
